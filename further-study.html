@@ -65,14 +65,23 @@
 
         pictureArray = ["static/coffee_machine.jpg", "static/coffee_mug.jpg", "static/coffee_beans.jpg"]
 
-        for (var i =0; i < pictureArray.length; i++) {
-            newImage = pictureArray[i];
-            console.log(newImage);
-            myImage.attr('src', newImage).hide().fadeToggle(1000).fadeToggle(1000);
-            console.log(i)
-            };
+        counter = 0;
 
-        myImage.show()
+        function changeImage() {
+            newImage = pictureArray[counter]
+            console.log(newImage);
+            setTimeout(function () {myImage.attr('src', newImage).hide().fadeIn().delay(1000).fadeOut(2000)}, 4000);
+            // setTimeout(function () {myImage.fadeOut(1000)}, 3000);
+            counter += 1
+            console.log(counter)
+        }
+           
+        changeImage();
+        console.log(counter)
+        setTimeout(changeImage, 6000);
+        console.log(counter)
+        setTimeout(changeImage, 6000);
+  
 
         // myImage.attr('src', "static/coffee_mug.jpg").hide().fadeIn(3000);
         // myImage.attr('src', "static/coffee_bean.jpg").hide().fadeIn(3000);
